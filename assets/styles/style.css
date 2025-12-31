@@ -1,0 +1,57 @@
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #020617;
+    color: #94a3b8;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.scanlines {
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 40;
+}
+
+.grid-bg {
+    background-image: 
+        linear-gradient(to right, #1e293b 1px, transparent 1px),
+        linear-gradient(to bottom, #1e293b 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.cursor-blink { animation: blink 1s step-end infinite; }
+
+@keyframes loader { 0% { width: 0%; } 100% { width: 100%; } }
+.progress-bar { animation: loader 2s ease-in-out forwards; }
+
+.fade-in { opacity: 0; transition: opacity 1s ease-in; }
+.fade-in.visible { opacity: 1; }
+
+.slide-up { transform: translateY(20px); opacity: 0; transition: all 0.5s ease-out; }
+.slide-up.visible { transform: translateY(0); opacity: 1; }
+
+.app-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.app-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #38bdf8;
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+.app-card:hover .icon-box {
+    color: #38bdf8;
+    border-color: #38bdf8;
+}
+
+.app-card:active {
+    transform: scale(0.98);
+}
